@@ -17,6 +17,9 @@
                     ps: with ps; [
                         numpy
                         torch
+                        torchvision
+                        pandas
+                        pillow
 
                         notebook
                         ipykernel
