@@ -16,10 +16,12 @@
                 rs-python = pkgs.python312.withPackages (
                     ps: with ps; [
                         numpy
-                        torch
-                        torchvision
                         pandas
-                        pillow
+                        tensorflow-bin
+                        (keras.override {
+                            tensorflow = tensorflow-bin;
+                        })
+                        rdkit
 
                         notebook
                         ipykernel
@@ -31,6 +33,8 @@
             {
                 devShells.default = mkShell {
                     buildInputs = [
+                        wget
+
                         rs-python
                         jupyter-all
                     ];
